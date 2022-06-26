@@ -42,9 +42,16 @@ app.get("/",function(req,res){
   res.sendFile(__dirname + "/signup.html");
 });
 app.post("/",function(req,res){
+  console.log(req.body);
+  console.log("/*************************************/");
+  console.log(res.body);
   subscribingUser.firstName = req.body.firstName;
   subscribingUser.lastName = req.body.lastName;
   subscribingUser.email = req.body.email;
+
+  if(req.body.checkbox === "Checkbox"){
+    console.log("Checkbox detected.");
+  }
 
   run(res);
 });
